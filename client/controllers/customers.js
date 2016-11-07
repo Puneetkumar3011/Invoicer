@@ -1,51 +1,65 @@
 (function(){
 	'use strict';
 	var invoiceApp = angular.module("invoiceApp");
+	invoiceApp.controller('CustomersController', CustomersController);
+	CustomersController.$inject = ['$rootScope', '$scope', '$http','$location','$routeParams'];
 
-	
-	invoiceApp.controller('CustomersController', ['$rootScope', '$scope', '$http','$location','$routeParams', 
-	function($rootScope, $scope, $http,$location, $routeParams){
+	function CustomersController($rootScope, $scope, $http,$location, $routeParams) {
 		console.log('Customer Controller Initialized...');
+		/* variables */
 		var vm = this;
 		vm.testCtrl = 'test';
+		/* controller interface*/
+		vm.getCustomers = getCustomers;
+		vm.getCustomer = getCustomer;
+		vm.getCustomerInvoices = getCustomerInvoices;
+		vm.addCustomer = addCustomer;
+		vm.updateCustomer = updateCustomer;
+		vm.deleteCustomer = deleteCustomer;
+		/* controller init */
+		activate();
 
-		$scope.getCustomers = function(){
+		function activate() {
+			getCustomers();
+		}
+
+		function getCustomers() {
 			$http.get('/api/customers').success(function(response){
-				$scope.customers = response;
+				vm.customers = response;
 			});
 		}
 
-		$scope.getCustomer = function(){
+		function getCustomer() {
 			var id = $routeParams.id;
 			$http.get('/api/customers/'+id).success(function(response){
-				$scope.customer = response;
+				vm.customer = response;
 			});
 		}
 
-		$scope.getCustomerInvoices = function(){
+		function getCustomerInvoices() {
 			var id = $routeParams.id;
 			$http.get('/api/invoices/customer/'+id).success(function(response){
-				$scope.customer_invoices = response;
+				vm.customer_invoices = response;
 			});
 		}
 
-		$scope.addCustomer = function(){
-			$http.post('/api/customers/',$scope.customer).success(function(response){
+		function addCustomer() {
+			$http.post('/api/customers/',vm.customer).success(function(response){
 				window.location.href='/#customers';
 			});
 		}
 
-		$scope.updateCustomer = function(){
-			$http.put('/api/customers/'+$scope.customer._id,$scope.customer).success(function(response){
+		function updateCustomer() {
+			$http.put('/api/customers/'+ vm.customer._id, vm.customer).success(function(response){
 				window.location.href='/#customers';
 			});
 		}
 
-		$scope.deleteCustomer = function(id){
+		function deleteCustomer(id) {
 			$http.delete('/api/customers/'+id).success(function(response){
 				window.location.href='/#customers';
 			});
 		}
-	}]);
+	};
 
 })();

@@ -9,10 +9,12 @@
 		})
 		.when('/customers',{
 			controller: 'CustomersController',
+			controllerAs: 'vm',
 			templateUrl: 'views/customers.html'
 		})
 		.when('/customers/details/:id',{
 			controller: 'CustomersController',
+			controllerAs: 'vm',
 			templateUrl: 'views/customer_details.html'
 		})
 		.when('/invoices',{
@@ -25,6 +27,7 @@
 		})
 		.when('/customers/add', {
 			controller: 'CustomersController',
+			controllerAs: 'vm',
 			templateUrl: 'views/add_customer.html'
 		})
 		.when('/invoices/add', {
@@ -33,6 +36,7 @@
 		})
 		.when('/customers/edit/:id',{
 			controller: 'CustomersController',
+			controllerAs: 'vm',
 			templateUrl: 'views/edit_customer.html'
 		})
 		.when('/invoices/edit/:id',{

@@ -1,19 +1,19 @@
-<div ng-init="getCustomer()">
-	<img class="pull-right img-small" src="{{customer.logo_url}}">
+<div ng-init="vm.getCustomer()">
+	<img class="pull-right img-small" src="{{vm.customer.logo_url}}">
   <div class="clearfix"></div>
-	<h2 class="sub-header">{{customer.first_name}} {{customer.last_name}}</h2>
+	<h2 class="sub-header">{{vm.customer.first_name}} {{vm.customer.last_name}}</h2>
 	<ul class="list-group">
-		<li class="list-group-item"><strong>Company: </strong> {{customer.company}}</li>
-		<li class="list-group-item"><strong>Email: </strong> {{customer.email}}</li>
-		<li class="list-group-item"><strong>Phone: </strong> {{customer.phone}}</li>
-		<li class="list-group-item"><strong>Street Address: </strong> {{customer.address.street}}</li>
-		<li class="list-group-item"><strong>City: </strong> {{customer.address.city}}</li>
-		<li class="list-group-item"><strong>State: </strong> {{customer.address.state}}</li>
-		<li class="list-group-item"><strong>Zip: </strong> {{customer.address.zip}}</li>
+		<li class="list-group-item"><strong>Company: </strong> {{vm.customer.company}}</li>
+		<li class="list-group-item"><strong>Email: </strong> {{vm.customer.email}}</li>
+		<li class="list-group-item"><strong>Phone: </strong> {{vm.customer.phone}}</li>
+		<li class="list-group-item"><strong>Street Address: </strong> {{vm.customer.address.street}}</li>
+		<li class="list-group-item"><strong>City: </strong> {{vm.customer.address.city}}</li>
+		<li class="list-group-item"><strong>State: </strong> {{vm.customer.address.state}}</li>
+		<li class="list-group-item"><strong>Zip: </strong> {{vm.customer.address.zip}}</li>
 	</ul>
   <br>
   <h3>Customer Invoices</h3>
-	<table class="table table-striped" ng-init="getCustomerInvoices()">
+	<table class="table table-striped" ng-init="vm.getCustomerInvoices()">
           <thead>
             <tr>
               <th>#</th>
@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="invoice in customer_invoices">
+            <tr ng-repeat="invoice in vm.customer_invoices">
             		<td>{{invoice._id}}</td>
               	<td>{{invoice.service}}</td>
               	<td>{{invoice.price}}</td>
@@ -32,7 +32,6 @@
             </tr>
           </tbody>
         </table>
-
  </div>
 
 
