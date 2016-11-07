@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
-	var myApp = angular.module("myApp");
+	var invoiceApp = angular.module("invoiceApp");
 
-	myApp.controller('DashboardController', ['$scope', '$http','$location', function($scope, $http,$location){
+	invoiceApp.controller('DashboardController', ['$scope', '$http','$location', function($scope, $http,$location){
 		console.log('Dashboard Controller Initialized...');
 	}]);
 

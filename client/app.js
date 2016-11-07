@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
-	var myApp = angular.module('myApp', ['ngRoute']);
+	var invoiceApp = angular.module('invoiceApp', ['ngRoute']);
 
-	myApp.config(function($routeProvider){
+	invoiceApp.config(function($routeProvider){
 		$routeProvider.when('/',{
 			controller: 'DashboardController',
 			templateUrl: 'views/dashboard.html'

@@ -12,6 +12,14 @@
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1"
+    "jasmine-core": "^2.3.4",
+    "jquery": "^3.1.1",
+    "karma": "^0.13.14",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "phantomjs": "^2.1.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8"
   }
 }

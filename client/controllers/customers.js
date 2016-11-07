@@ -1,9 +1,13 @@
 (function(){
 	'use strict';
-	var myApp = angular.module("myApp");
+	var invoiceApp = angular.module("invoiceApp");
 
-	myApp.controller('CustomersController', ['$scope', '$http','$location','$routeParams', function($scope, $http,$location, $routeParams){
+	
+	invoiceApp.controller('CustomersController', ['$rootScope', '$scope', '$http','$location','$routeParams', 
+	function($rootScope, $scope, $http,$location, $routeParams){
 		console.log('Customer Controller Initialized...');
+		var vm = this;
+		vm.testCtrl = 'test';
 
 		$scope.getCustomers = function(){
 			$http.get('/api/customers').success(function(response){

@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
-	var myApp = angular.module("myApp");
+	var invoiceApp = angular.module("invoiceApp");
 
-	myApp.controller('InvoicesController', ['$scope', '$http','$location','$routeParams', function($scope, $http,$location, $routeParams){
+	invoiceApp.controller('InvoicesController', ['$scope', '$http','$location','$routeParams', function($scope, $http,$location, $routeParams){
 		console.log('Invoice Controller Initialized...');
 
 		$scope.getInvoices = function(){
