@@ -1,9 +1,9 @@
 (function(){
 	'use strict';
-	var invoiceApp = angular.module("invoiceApp");
-	invoiceApp.controller('CustomersController', CustomersController);
+	angular.module("invoiceApp")
+		.controller('CustomersController', CustomersController);
+	
 	CustomersController.$inject = ['$rootScope', '$scope', '$http','$location','$routeParams'];
-
 	function CustomersController($rootScope, $scope, $http,$location, $routeParams) {
 		console.log('Customer Controller Initialized...');
 		/* variables */
@@ -31,7 +31,7 @@
 
 		function getCustomer() {
 			var id = $routeParams.id;
-			$http.get('/api/customers/'+id).success(function(response){
+			$http.get('/api/customers/' + id).success(function(response){
 				vm.customer = response;
 			});
 		}
