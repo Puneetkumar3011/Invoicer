@@ -13,5 +13,6 @@
     "nodemon": "^1.11.0"
   },
   "author": "Brad Traversy",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }
