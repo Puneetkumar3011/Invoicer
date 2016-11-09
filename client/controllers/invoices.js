@@ -28,7 +28,6 @@
 				vm.invoice= response;
 				//Fill Select
 				vm.invoice.customer_id = response.customer._id;
-				vm.invoice.status = response.invoice.status;
 			});
 		}
 
