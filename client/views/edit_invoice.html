@@ -1,28 +1,28 @@
 <h2 class="sub-header">Edit Invoice</h2>
-<form ng-submit="updateInvoice()" ng-init="getInvoice(); getCustomers()">
+<form ng-submit="vm.updateInvoice()" ng-init="vm.getInvoice(); vm.getCustomers()">
    <div class="form-group">
     <label>Service</label>
-    <input type="text" class="form-control" name="service" ng-model="invoice.service" placeholder="Service">
+    <input type="text" class="form-control" name="service" ng-model="vm.invoice.service" placeholder="Service">
   </div>
   <div class="form-group">
     <label>Customer</label>
-    <select class="form-control" ng-model="invoice.customer_id">
-      <option ng-repeat="customer in customers" value="{{customer._id}}">
+    <select class="form-control" ng-model="vm.invoice.customer_id">
+      <option ng-repeat="customer in vm.customers" value="{{customer._id}}">
         {{customer.first_name}} {{customer.last_name}} ({{customer.company}})
       </option>
     </select>
   </div>
   <div class="form-group">
     <label>Price</label>
-    <input type="text" class="form-control" name="company" ng-model="invoice.price"placeholder="Price">
+    <input type="text" class="form-control" name="company" ng-model="vm.invoice.price" placeholder="Price">
   </div>
   <div class="form-group">
     <label>Due Date</label>
-    <input type="text" class="form-control" name="due_date" ng-model="invoice.due_date"placeholder="Due Date">
+    <input type="text" class="form-control" name="due_date" ng-model="vm.invoice.due" placeholder="Due Date">
   </div>
   <div class="form-group">
     <label>Status</label>
-    <select class="form-control" ng-model="invoice.status">
+    <select class="form-control" ng-model="vm.invoice.status">
       <option value="Unpaid">Unpaid</option>
       <option value="Paid">Paid</option>
       <option value="Overdue">Overdue</option>

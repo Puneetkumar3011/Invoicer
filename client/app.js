@@ -19,10 +19,12 @@
 		})
 		.when('/invoices',{
 			controller: 'InvoicesController',
+			controllerAs: 'vm',
 			templateUrl: 'views/invoices.html'
 		})
 		.when('/invoices/details/:id',{
 			controller: 'InvoicesController',
+			controllerAs: 'vm',
 			templateUrl: 'views/invoice_details.html'
 		})
 		.when('/customers/add', {
@@ -32,6 +34,7 @@
 		})
 		.when('/invoices/add', {
 			controller: 'InvoicesController',
+			controllerAs: 'vm',
 			templateUrl: 'views/add_invoice.html'
 		})
 		.when('/customers/edit/:id',{
@@ -41,6 +44,7 @@
 		})
 		.when('/invoices/edit/:id',{
 			controller: 'InvoicesController',
+			controllerAs: 'vm',
 			templateUrl: 'views/edit_invoice.html'
 		})
 		.otherwise({

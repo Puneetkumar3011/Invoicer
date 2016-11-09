@@ -1,49 +1,59 @@
 (function(){
 	'use strict';
-	var invoiceApp = angular.module("invoiceApp");
+	angular.module("invoiceApp")
+		.controller('InvoicesController',InvoicesController);
 
-	invoiceApp.controller('InvoicesController', ['$scope', '$http','$location','$routeParams', function($scope, $http,$location, $routeParams){
+	InvoicesController.$inject = ['$scope', '$http','$location','$routeParams']; 
+	function InvoicesController($scope, $http,$location, $routeParams) {
 		console.log('Invoice Controller Initialized...');
+		/*controller variables */
+		var vm = this;
+		/*Controller interface */
+		vm.getInvoices = getInvoices;
+		vm.getInvoice = getInvoice;
+		vm.getCustomers = getCustomers;
+		vm.addInvoice = addInvoice;
+		vm.updateInvoice = updateInvoice;
+		vm.deleteInvoice  = deleteInvoice;
 
-		$scope.getInvoices = function(){
+		function getInvoices() {
 			$http.get('/api/invoices').success(function(response){
-				$scope.invoices = response;
+				vm.invoices = response;
 			});
 		}
 
-		$scope.getInvoice = function(){
+		function getInvoice() {
 			var id = $routeParams.id;
 			$http.get('/api/invoices/'+id).success(function(response){
-				$scope.invoice= response;
+				vm.invoice= response;
 				//Fill Select
-				$scope.invoice.customer_id = response.customer._id;
-				$scope.invoice.status = response.invoice.status;
+				vm.invoice.customer_id = response.customer._id;
+				vm.invoice.status = response.invoice.status;
 			});
 		}
 
-		$scope.getCustomers = function(){
+		function getCustomers() {
 			$http.get('/api/customers').success(function(response){
-				$scope.customers = response;
+				vm.customers = response;
 			});
 		}
 
-		$scope.addInvoice = function(){
-			$http.post('/api/invoices/',$scope.invoice).success(function(response){
+		function addInvoice() {
+			$http.post('/api/invoices/',vm.invoice).success(function(response){
 				window.location.href='/#invoices';
 			});
 		}
 
-		$scope.updateInvoice = function(){
-			$http.put('/api/invoices/'+$scope.invoice._id,$scope.invoice).success(function(response){
+		function updateInvoice() {
+			$http.put('/api/invoices/'+ vm.invoice._id, vm.invoice).success(function(response){
 				window.location.href='/#invoices';
 			});
 		}
 
-		$scope.deleteInvoice = function(id){
+		function deleteInvoice(id) {
 			$http.delete('/api/invoices/'+id).success(function(response){
 				window.location.href='/#invoices';
 			});
 		}
-	}]);
-
+	};
 })();

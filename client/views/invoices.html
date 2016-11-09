@@ -1,5 +1,5 @@
 <h2 class="sub-header">Invoices</h2>
-      <div class="table-responsive" ng-init="getInvoices()">
+      <div class="table-responsive" ng-init="vm.getInvoices()">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -12,7 +12,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="invoice in invoices">
+            <tr ng-repeat="invoice in vm.invoices">
               <td>{{invoice._id}}</td>
               <td>{{invoice.customer.first_name}} {{invoice.customer.last_name}}</td>
                 <td>{{invoice.service}}</td>
@@ -21,7 +21,7 @@
                 <td>
                   <a href="#/invoices/details/{{invoice._id}}" class="btn btn-primary">Details</a> 
                   <a href="#/invoices/edit/{{invoice._id}}" class="btn btn-default">Edit</a> 
-                  <button ng-click="deleteInvoice(invoice._id)" class="btn btn-danger">Delete</a></td>
+                  <button ng-click="vm.deleteInvoice(invoice._id)" class="btn btn-danger">Delete</a></td>
             </tr>
           </tbody>
         </table>
