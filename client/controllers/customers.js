@@ -44,7 +44,7 @@
 		}
 
 		function addCustomer() {
-			$http.post('/api/customers/',vm.customer).success(function(response){
+			$http.post('/api/customers/', vm.customer).success(function(response){
 				window.location.href='/#customers';
 			});
 		}

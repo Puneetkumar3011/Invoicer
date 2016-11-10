@@ -5,18 +5,18 @@ var mongoose = require('mongoose');
 
 // Customer Schema
 var customerSchema = mongoose.Schema({
-	first_name:{
+	firstName:{
 		type: String,
 		required: true
 	},
-	last_name:{
+	lastName:{
 		type: String,
 		required: true
 	},
 	company:{
 		type: String
 	},
-	logo_url:{
+	logoUrl:{
 		type: String
 	},
 	email:{
@@ -42,7 +42,7 @@ var Customer = mongoose.model('Customer', customerSchema);
 
 // Get customers
 module.exports.getCustomers = function(callback, limit){
-	Customer.find(callback).limit(limit).sort([['first_name', 'ascending']]);
+	Customer.find(callback).limit(limit).sort([['firstName', 'ascending']]);
 }
 
 // Get customer
@@ -53,10 +53,10 @@ module.exports.getCustomerById = function(id, callback){
 // Add Customer
 module.exports.addCustomer = function(customer, callback){
 	var add = {
-		first_name: customer.first_name,
-		last_name: customer.last_name,
+		firstName: customer.firstName,
+		lastName: customer.lastName,
 		company: customer.company,
-		logo_url: customer.logo_url,
+		logoUrl: customer.logoUrl,
 		email: customer.email,
 		phone: customer.phone,
 		address: {
@@ -73,10 +73,10 @@ module.exports.addCustomer = function(customer, callback){
 module.exports.updateCustomer = function(id, customer, options, callback){
 	var query = {_id: id};
 	var update = {
-		first_name: customer.first_name,
-		last_name: customer.last_name,
+		first_name: customer.firstName,
+		last_name: customer.lastName,
 		company: customer.company,
-		logo_url: customer.logo_url,
+		logo_url: customer.logoUrl,
 		email: customer.email,
 		phone: customer.phone,
 		address: {

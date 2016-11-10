@@ -29,6 +29,7 @@
 	// Add Customer
 	router.post('/', function(req, res){
 		var customer = req.body;
+		console.log(req.body);
 		Customer.addCustomer(customer, function(err, customer){
 			if(err){
 				res.send(err);

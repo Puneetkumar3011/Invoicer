@@ -8,7 +8,7 @@
     <label>Customer</label>
     <select class="form-control" ng-model="vm.invoice.customer_id">
       <option ng-repeat="customer in vm.customers" value="{{customer._id}}">
-        {{customer.first_name}} {{customer.last_name}} ({{customer.company}})
+        {{customer.firstName}} {{customer.lastName}} ({{customer.company}})
       </option>
     </select>
   </div>
