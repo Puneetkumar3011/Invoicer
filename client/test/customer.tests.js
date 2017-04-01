@@ -7,7 +7,7 @@ describe('Customer Controller Test:', function() {
   var $scope;
   var $timeout;
 
-  describe('Test list:', function() {
+  describe('Test customer CRUD:', function() {
     var custCtrl;
     var custData = {"_id":"1","first_name":"Puneet","last_name":"Singh","company":"Symbol","email":"puneet3011@gmail.com","phone":"6098150612","__v":0,"createdAt":"2016-11-07T02:39:20.225Z","address":{"street":"161","city":"lawrenceville","state":"nj","zip":"07618"}};
     var custDataList = [custData];

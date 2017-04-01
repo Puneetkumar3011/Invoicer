@@ -12,10 +12,11 @@
 	mongoose.connect('mongodb://localhost/invoicr');
 	var db = mongoose.connection;
 
-	app.use(express.static(__dirname+'/client'));
+	app.use(express.static(__dirname +'/client'));
 	app.use(bodyParser.json());
 
 	app.get('/', function(req, res){
+		console.log('default API');
 		res.send('Please use /api/customers or /api/invoices');
 	});
 

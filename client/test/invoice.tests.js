@@ -7,7 +7,7 @@ describe('Invoice Controller Test:', function() {
   var $scope;
   var $timeout;
 
-  describe('Test list:', function() {
+  describe('Test invoice CRUD:', function() {
     var invCtrl;
     var invoice = {"_id":"1","customer":{"_id":"581fe95895d9ee0704502d31","first_name":"Puneet","last_name":"Singh","company":"Symbol","email":"puneet3011@gmail.com","phone":"6098150612","__v":0,"createdAt":"2016-11-07T02:39:20.225Z","address":{"street":"161","city":"lawrenceville","state":"nj","zip":"07618"}},"service":"New Service","price":1500,"due":"03/03/2016","status":"Paid","__v":0,"createdAt":"2016-11-09T14:46:26.268Z"};
     var invoiceList = [invoice];

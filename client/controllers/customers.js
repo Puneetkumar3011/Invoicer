@@ -24,39 +24,39 @@
 		}
 
 		function getCustomers() {
-			$http.get('/api/customers').success(function(response){
-				vm.customers = response;
+			$http.get('/api/customers').then(function(response){
+				vm.customers = response.data;
 			});
 		}
 
 		function getCustomer() {
 			var id = $routeParams.id;
-			$http.get('/api/customers/' + id).success(function(response){
-				vm.customer = response;
+			$http.get('/api/customers/' + id).then(function(response){
+				vm.customer = response.data;
 			});
 		}
 
 		function getCustomerInvoices() {
 			var id = $routeParams.id;
-			$http.get('/api/invoices/customer/'+id).success(function(response){
-				vm.customer_invoices = response;
+			$http.get('/api/invoices/customer/'+id).then(function(response){
+				vm.customer_invoices = response.data;
 			});
 		}
 
 		function addCustomer() {
-			$http.post('/api/customers/', vm.customer).success(function(response){
+			$http.post('/api/customers/', vm.customer).then(function(response){
 				window.location.href='/#customers';
 			});
 		}
 
 		function updateCustomer() {
-			$http.put('/api/customers/'+ vm.customer._id, vm.customer).success(function(response){
+			$http.put('/api/customers/'+ vm.customer._id, vm.customer).then(function(response){
 				window.location.href='/#customers';
 			});
 		}
 
 		function deleteCustomer(id) {
-			$http.delete('/api/customers/'+id).success(function(response){
+			$http.delete('/api/customers/'+id).then(function(response){
 				window.location.href='/#customers';
 			});
 		}

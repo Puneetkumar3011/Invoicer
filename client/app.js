@@ -2,6 +2,10 @@
 	'use strict';
 	var invoiceApp = angular.module('invoiceApp', ['ngRoute']);
 
+	invoiceApp.config(['$locationProvider', function($locationProvider) {
+  		$locationProvider.hashPrefix('');
+	}]);
+
 	invoiceApp.config(function($routeProvider){
 		$routeProvider.when('/',{
 			controller: 'DashboardController',
